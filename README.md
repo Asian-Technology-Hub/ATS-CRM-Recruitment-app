@@ -128,6 +128,9 @@ guards as the UI.
   state, open searches, and "since you last spoke" activity
 - 🗂️ **Roles** — card grid or a pure-CSS **Gantt timeline** of every search
 - 👥 **Talent pool** — URL-driven search by name, skill and source
+- 💷 **Offers where you make them** — record or edit the figure and the note
+  straight from the Offer lane; recording from an earlier stage moves the
+  candidate to Offer for you
 - ⌨️ **⌘K** command palette, **⌘I** quick-ask, **⌘B** sidebar
 
 | Today — the triage queue | Pipeline — cross-client kanban |
@@ -145,6 +148,8 @@ guards as the UI.
 ![Roles as a timeline — each search is a bar from the day it opened to today, tinted to match the client](docs/assets/roles-timeline.png)
 
 ![The Today peek panel — why this person is in your queue, their stage rail, interview history, and two one-click questions for the AI](docs/assets/today-peek.png)
+
+![Recording an offer from the Offer lane — the amount and the note that goes with it](docs/assets/record-offer.png)
 
 > The candidate record above is where the two semantic fields live: **`cvText`**
 > (the CV as written) and, under each round, **`feedbackText`** (the debrief a
@@ -683,7 +688,8 @@ The seed data is engineered so every beat lands:
    prompt also uses.
 2. **Drag a card** on the Pipeline board — the move is optimistic, and
    `moveApplication` deliberately skips `revalidatePath` so cards never jump
-   mid-drag.
+   mid-drag. Drop someone into **Offer** and record the figure right there;
+   the note you add is what the agent reads back when you ask about the offer.
 3. **Ask Vetra**: _"Who's stalled in screening?"_ — **structural**. Watch the tool
    receipt: a plain GROQ date filter, no embeddings.
 4. **Ask**: _"Find me a React engineer with fintech experience"_ — **semantic**,
