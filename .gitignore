@@ -41,5 +41,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Claude Code worktrees (each is its own checkout)
-.claude/worktrees/
+# Claude Code (worktrees are separate checkouts; local settings stay local)
+.claude/

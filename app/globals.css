@@ -263,3 +263,20 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-float, .animate-float-delay { animation: none; }
 }
+
+/* Ask Vetra dock (Ask Widget design) */
+@keyframes vetra-sweep {
+  0% { opacity: 0; transform: translateX(-60%); }
+  40% { opacity: 0.9; }
+  100% { opacity: 0; transform: translateX(60%); }
+}
+.animate-vetra-sweep { animation: vetra-sweep 1.8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-vetra-sweep { animation: none; }
+}
+
+/* Ask Vetra expanded: the dock becomes a right sidebar and the app shifts in */
+[data-slot="sidebar-inset"] { transition: margin-right 300ms ease; }
+@media (min-width: 768px) {
+  body[data-vetra-expanded] [data-slot="sidebar-inset"] { margin-right: 428px; }
+}
