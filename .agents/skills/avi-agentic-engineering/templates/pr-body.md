@@ -8,8 +8,8 @@
 
 ## Evidence
 
-- [ ] `pnpm typecheck`
-- [ ] `pnpm lint`
+- [ ] Typecheck / lint / tests per `AGENTS.md`
+- [ ] Build (if runtime or UI contracts changed)
 - [ ] Tests / build (if contracts changed)
 - [ ] UI path exercised (or substitute named)
 - [ ] Independent review (if substantial)

@@ -128,7 +128,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Always. When adding guidance, choose the layer.
 
-**Cursor:** Put catalog/SOP in `avi-*` skills; put Vetra tenancy and Next 16 `proxy.ts` in `AGENTS.md`. Cursor rules (`.cursor/rules`) should point at both, not duplicate the catalog.
+**Cursor:** Put catalog/SOP in `avi-*` skills; put *this repo's* stack and security rules in `AGENTS.md`. Cursor rules (`.cursor/rules`) should point at both, not duplicate the catalog.
 
 **Anti-pattern:** 2k-line `AGENTS.md` that copies Clerk/Sanity tutorials; skills that hard-code one repo's paths as if they were universal.
 
@@ -140,7 +140,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** New repos and this catalog's templates. Record overlays in `PROJECT.yaml`.
 
-**Cursor:** This CRM uses `core` + `web-app` + `ai-agent`. Do not drop mobile/infra scaffolding here.
+**Cursor:** This CRM example uses `core` + `web-app` + `ai-agent`. Record overlays in `PROJECT.yaml`; do not drop unused mobile/infra scaffolding.
 
 **Anti-pattern:** Copy-paste of a monorepo mega-template into a simple app.
 
@@ -156,7 +156,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Browser trainers, endpoint control, multi-surface agents.
 
-**Cursor:** In this repo, Server Actions are the core; `lib/agent-tools.ts` and UI buttons are thin adapters (`AVI-AGENT` analogue).
+**Cursor:** Keep business logic in a resident core (services/actions). UI and agent tools should be thin adapters over the same enforcement path.
 
 **Anti-pattern:** Divergent permission checks in the chat tools vs the form actions.
 
@@ -168,7 +168,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Models, MCP, creative-resource APIs, org integrations.
 
-**Cursor:** Prefer existing gateways (`lib/mcp.ts`, Clerk `auth()`). Do not add a second Anthropic client beside the AI SDK route without a reason.
+**Cursor:** Prefer the project's existing gateways (auth, MCP URL builders, SDK clients). Do not add a parallel provider client beside an established route without a reason.
 
 **Anti-pattern:** Each feature invents its own provider SDK wrapper.
 
@@ -192,7 +192,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** External systems. Prefer MCP (or an equivalent typed tool layer) over one-off curl in the prompt.
 
-**Cursor:** Use discovered MCP namespaces; call `GetDynamicTools` before `CallDynamicTool`. Sanity Context is the content bus for Ask Vetra.
+**Cursor:** Use discovered MCP namespaces; call `GetDynamicTools` before `CallDynamicTool`. Product copilots should use the project's capability bus, not a one-off HTTP client in the prompt.
 
 **Anti-pattern:** Pasting API keys into the model and asking it to "just fetch".
 
@@ -244,7 +244,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Browser agents, endpoint control, OpenCode model rollout.
 
-**Cursor:** `navigate_to` must stay inside `/dashboard` in this app. Prefer known package-manager commands (`pnpm`) over arbitrary curl-to-disk.
+**Cursor:** Honor route/domain/command allowlists in `AGENTS.md`. Prefer the project's package manager over arbitrary curl-to-disk.
 
 **Anti-pattern:** Unrestricted `shell` + unrestricted browser as the default.
 
@@ -256,9 +256,9 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Default autonomy gradient for this catalog.
 
-**Cursor:** Prepare the PR; do not merge. Do not spend money. Do not disable tenant filters "to test".
+**Cursor:** Prepare the PR; do not merge. Do not spend money. Do not disable security filters "to test".
 
-**Anti-pattern:** Agent merges its own PR; agent "temporarily" widens `groqFilter`.
+**Anti-pattern:** Agent merges its own PR; agent "temporarily" disables a security filter or allowlist.
 
 **Related:** 008, 017, 060.
 
@@ -268,7 +268,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Email, CMS, git, browser automation.
 
-**Cursor:** Feature branches, Sanity drafts vs published (this app's agent already excludes drafts in MCP filter — keep it). Prefer additive flags.
+**Cursor:** Feature branches; drafts vs published where the CMS supports it. Prefer additive flags.
 
 **Anti-pattern:** Irreversible cleanup as step 1 of a refactor.
 
@@ -278,9 +278,9 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Structure:** Events with agent, task, tool, input ref, decision, action, result, cost, timestamp, approval, rollback ref.
 
-**Apply:** Browser automation, OpenCode, enterprise governance, Ask Vetra Insights.
+**Apply:** Browser automation, OpenCode, enterprise governance, in-product agent Insights/telemetry.
 
-**Cursor:** Prefer existing telemetry (Sanity Insights on `/api/agent`) over a parallel log. For coding agents, the PR + commits are the audit trail; keep messages descriptive.
+**Cursor:** Prefer the project's existing telemetry over a parallel log. For coding agents, the PR + commits are the audit trail; keep messages descriptive.
 
 **Anti-pattern:** Unstructured "I think it worked" with no artifact.
 
@@ -290,11 +290,11 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Structure:** agent → credential alias → secret broker → provider. Logs and prompts redact secrets.
 
-**Apply:** All tokens (Sanity, Clerk, Anthropic).
+**Apply:** Provider tokens and credentials listed in the project's env template.
 
 **Cursor:** `.env.local` only. Never print tokens. Never commit `.env*`. Cite env var *names* in docs.
 
-**Anti-pattern:** Pasting `sk-` or Sanity tokens into chat, commits, or screenshots.
+**Anti-pattern:** Pasting API keys or tokens into chat, commits, or screenshots.
 
 **Related:** 018, 024.
 
@@ -308,9 +308,9 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Any agent with shell or browser.
 
-**Cursor:** This workspace is the sandbox. Do not target production Sanity datasets for experiments; do not use the operator Studio as an end-user test.
+**Cursor:** This workspace is the sandbox. Do not target production data stores for experiments; do not use operator consoles as end-user tests.
 
-**Anti-pattern:** Running destructive seed `--reset` against a shared production org without being asked.
+**Anti-pattern:** Running destructive reset/seed against shared production without being asked.
 
 **Related:** 018, 025.
 
@@ -360,7 +360,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Definition of done for agents.
 
-**Cursor:** Cite commands and outcomes in the PR. For Ask Vetra changes, include a sample GROQ or route behavior.
+**Cursor:** Cite commands and outcomes in the PR. For copilot/MCP changes, include a sample request/response, not a claim.
 
 **Anti-pattern:** "The feature should work now."
 
@@ -386,7 +386,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Cursor:** Bound `block_until_ms` on shells; do not wait forever on `next dev`. Cancel stuck jobs rather than stacking duplicates.
 
-**Anti-pattern:** Starting a second `pnpm dev` on the same port "to be sure".
+**Anti-pattern:** Starting a second long-lived dev server on the same port "to be sure".
 
 **Related:** 029, 058.
 
@@ -494,9 +494,9 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Structure:** Vector (semantic) + graph (relationships) + SQL/docs (authoritative) + event/timeline (history).
 
-**Apply:** Second-brain and this CRM (GROQ structure + embeddings).
+**Apply:** Second-brain systems and products that already combine structured queries with semantic ranking.
 
-**Cursor:** Do not add a vector DB to Vetra; Content Lake embeddings already cover semantic search. Structured tenant data stays in Sanity documents.
+**Cursor:** Do not add a second memory stack when the project already has one (e.g. structured store + embeddings). Prefer the representations listed in `PROJECT.yaml`.
 
 **Anti-pattern:** Forcing everything into one embedding index.
 
@@ -508,7 +508,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Personal agents; also multi-tenant product agents.
 
-**Cursor:** Ask Vetra is org-bounded. Coding agents: do not leak `.env` or other tenants' seed data into public PRs.
+**Cursor:** Product agents are identity-bounded per `AGENTS.md`. Coding agents: do not leak `.env` or other tenants' data into public PRs.
 
 **Anti-pattern:** Same context for public blog and private family agent.
 
@@ -524,7 +524,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** UI verification and in-product agents with client tools.
 
-**Cursor:** Browser tools after UI changes. In-app: `get_current_page` / `navigate_to`.
+**Cursor:** Browser tools after UI changes. In-app copilots may expose page-observe/navigate tools as thin adapters.
 
 **Anti-pattern:** Claiming UI works from code inspection alone when browser tools exist.
 
@@ -534,9 +534,9 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Structure:** current URL/page → classify workflow → activate relevant agent/tools.
 
-**Apply:** Extension-bar organizers; Ask Vetra empty-state suggestions.
+**Apply:** Extension-bar organizers; page-aware in-app copilots.
 
-**Cursor:** Keep page-specific suggestions in the dock; do not enable Studio operator tools on `/dashboard`.
+**Cursor:** Keep page-specific tools/suggestions; do not enable operator/admin tools on end-user surfaces.
 
 **Anti-pattern:** Every tool visible on every site.
 
@@ -572,7 +572,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Bookmarks, subscriptions, job applications, recruiter CRM.
 
-**Cursor:** Ask Vetra drafts and clerical acts; humans decide hire/reject. Coding agents draft PRs; humans merge.
+**Cursor:** In-product agents draft and perform clerical acts; humans keep irreversible domain decisions. Coding agents draft PRs; humans merge.
 
 **Anti-pattern:** Full autonomy on day one of an unreliable workflow.
 
@@ -636,7 +636,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** High-value architecture, security-sensitive tenancy changes.
 
-**Cursor:** Implementation agent + independent `code-reviewer`. Optional second model only when the user asks or the decision is load-bearing (`lib/mcp.ts`, `lib/tenant.ts`).
+**Cursor:** Implementation agent + independent `code-reviewer`. Optional second model only when the user asks or the decision is load-bearing (files listed in `PROJECT.yaml` → `architecture.load_bearing`).
 
 **Anti-pattern:** Three models bikeshedding button copy.
 
@@ -652,7 +652,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Dual-system orgs. Do not force Asana fields into git or vice versa.
 
-**Cursor:** PRs via `ManagePullRequest`. Do not invent Asana tasks unless asked. Put the Asana URL in `PROJECT.yaml` when it exists.
+**Cursor:** Create/update PRs through the harness's PR tool. Do not invent project-management tasks unless asked. Put workstream URLs in `PROJECT.yaml` when they exist.
 
 **Anti-pattern:** Duplicating the full backlog in both systems without links.
 
@@ -688,7 +688,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Idea-stage vs implementation-stage repos.
 
-**Cursor:** Vetra is `implementation` — constraints above are binding. New ideas: don't demand a full ADR set on day one.
+**Cursor:** Honor `PROJECT.yaml` `stage`. Implementation-stage constraints in `AGENTS.md` are binding. Idea-stage: don't demand a full ADR set on day one.
 
 **Anti-pattern:** Either no spec at all, or a 40-page spec for a spike.
 
@@ -730,7 +730,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Cursor:** `PROJECT.yaml` + this catalog = control. The agent's tools = execution. Do not let execution redefine policy.
 
-**Anti-pattern:** A shell script that "temporarily" disables `assertOwned`.
+**Anti-pattern:** A script that "temporarily" disables an authorization helper.
 
 **Related:** 015, 017, 053.
 
@@ -738,7 +738,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Structure:** Events (email, PR, bookmark, upload, expiry, page, Asana) trigger workflows — not only human prompts.
 
-**Apply:** Automations, webhooks (`app/api/webhooks/route.ts`).
+**Apply:** Automations and webhooks.
 
 **Cursor:** Implement webhook handlers as deterministic code; use the LLM only for interpretation/exceptions (`AVI-AGENT-059`).
 
@@ -752,9 +752,9 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Default for writes. This CRM already wraps Server Actions.
 
-**Cursor:** Keep business rules in TypeScript. The model chooses tools; it does not reimplement tenancy.
+**Cursor:** Keep business rules in deterministic code. The model chooses tools; it does not reimplement authorization.
 
-**Anti-pattern:** Model-authored GROQ *mutations* or raw Sanity patches from the prompt.
+**Anti-pattern:** Model-authored raw mutations that bypass the project's write tools.
 
 **Related:** 012, 014, 017.
 
@@ -764,7 +764,7 @@ Legend for each card: **Structure** · **Apply** · **Cursor** · **Anti-pattern
 
 **Apply:** Product copilot and coding agents.
 
-**Cursor:** Coding agents: high autonomy on reversible branch work; zero autonomy on merge/prod. Ask Vetra: clerical writes only when the user clearly instructs; no hiring decisions.
+**Cursor:** Coding agents: high autonomy on reversible branch work; zero autonomy on merge/prod. Product copilots follow the autonomy and refusal rules in that repo's `AGENTS.md`.
 
 **Anti-pattern:** Same autonomy for README typos and production billing.
 

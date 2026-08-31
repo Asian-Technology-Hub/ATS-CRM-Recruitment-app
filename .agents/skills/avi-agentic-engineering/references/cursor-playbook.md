@@ -43,22 +43,14 @@ Do not use `CreateGoal` unless the user explicitly asked for a goal.
 | Edit files on a feature branch | Yes, after inspect | 007, 008 |
 | Commit and push working branch | Yes (Cloud Agent) | 008 |
 | Merge / close / reopen PR | Only if user explicitly asked | 020 |
-| `gh` write (issues, PR create) | No — use ManagePullRequest for PRs | 017 |
+| `gh` write (issues, PR create) | No — use the harness PR tool | 017 |
 | Print or commit secrets | Never | 023 |
-| Production Sanity/Clerk mutations | Only with explicit user ask | 017, 024 |
-| Widen tenant `groqFilter` | Never "temporarily" | 019, 020 |
+| Production data / billing mutations | Only with explicit user ask | 017, 024 |
+| Disable security filters "to test" | Never | 019, 020 |
 
-## Verification commands (Vetra)
+## Verification
 
-Prefer these over ad-hoc tool success:
-
-```bash
-pnpm typecheck
-pnpm lint
-pnpm build   # when runtime or UI contracts change
-```
-
-UI: exercise the changed dashboard flow. Shared state (pipeline ↔ today ↔ agent dock) must stay consistent.
+Run the commands in `PROJECT.yaml` / `AGENTS.md`. Prefer those over ad-hoc tool success. UI: exercise the changed flow and shared surfaces that read the same state.
 
 ## Memory promotion at session end
 
@@ -66,6 +58,6 @@ UI: exercise the changed dashboard flow. Shared state (pipeline ↔ today ↔ ag
 | --- | --- | --- |
 | Status, systems, links | `PROJECT.yaml` | 053, 037 |
 | Operating constraint | `AGENTS.md` | 010 |
-| Reusable SOP | `.agents/skills/avi-*/` | 044, 056 |
+| Reusable SOP | `.agents/skills/avi-*/` | 010, 056 |
 | URL / note / reference | `kb/` | 031, 035 |
 | Architecture choice | `docs/adr/` | 009 |

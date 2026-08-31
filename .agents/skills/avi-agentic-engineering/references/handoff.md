@@ -19,10 +19,10 @@ Handoff unit is a **reviewable artifact** (usually a PR), not a chat summary (`A
 Use `templates/pr-body.md`. Required headings:
 
 - Summary
-- Plan / approach (or link)
+- Approach (or link to a plan)
 - Evidence
-- Risk & rollback
-- Human gates
+- Risk and rollback
+- Human gates still required
 - Knowledge updates
 
 ## What the human is expected to do
@@ -30,8 +30,8 @@ Use `templates/pr-body.md`. Required headings:
 | Gate | Human |
 | --- | --- |
 | Merge | Review diff + evidence; merge |
-| Product copy / hiring policy | Confirm Ask Vetra still does not rank-to-reject |
-| Tenant/security | Confirm `lib/mcp.ts` / `lib/tenant.ts` unchanged or intentionally changed |
+| Product / domain policy | Confirm refusals and autonomy rules in `AGENTS.md` still hold |
+| Security boundaries | Confirm load-bearing files in `PROJECT.yaml` are unchanged or intentionally changed |
 | Deploy | Their release process — agents do not ship production |
 | Secrets/providers | Rotate or inject credentials out of band |
 

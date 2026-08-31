@@ -10,4 +10,4 @@ Start from a **lean core** (`PROJECT.yaml`, `AGENTS.md` overlay, `kb/`, Cursor r
 | `ai-agent` | MCP bus, tool contracts wrapping deterministic actions, model/policy notes, Insights/audit | A second unconstrained agent runtime |
 | `infra` | Env isolation, deploy gates, production mutation = human | Prod credentials in the agent prompt |
 
-Vetra: `core` + `web-app` + `ai-agent`.
+Record overlays in each repo's `PROJECT.yaml`. Do not copy unused overlay scaffolding.

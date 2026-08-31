@@ -38,7 +38,7 @@ Classify the request, then select the smallest capable path:
 | Class | Default path |
 | --- | --- |
 | Question / explore | Read-only. No branch, no mutation. |
-| Trivial edit (one obvious file, no architecture) | Inspect → patch on feature branch → evidence → PR if the environment expects one. |
+| Trivial edit (one obvious file, no architecture) | Inspect → patch on a feature branch → evidence. Open a PR when `AGENTS.md` / the harness requires it (Cloud Agents in this org: always PR). |
 | Substantial implementation | Coordinator loop below. |
 | Research / design | Discovery → plan artifact → human gate before code. |
 | Incident / debug | Observe evidence first; no speculative rewrites. |
@@ -62,7 +62,7 @@ For substantial work, **you** are the coordinator unless the user named another.
 7. **Independent review** — `code-reviewer` / CodeRabbit (`AVI-AGENT-006`). Do not be the only reviewer of your own diff.
 8. **Handoff** — PR + evidence + open questions (`references/handoff.md`). Human merges (`AVI-AGENT-020`).
 
-## Mutation policy (`AVI-AGENT-008`, `017`, `021`, `024`)
+## Mutation policy (`AVI-AGENT-008`, `017`, `020`, `021`, `023`, `024`)
 
 ```
 branch → patch → diff → tests/build → review → PR → (human) merge
@@ -76,11 +76,10 @@ branch → patch → diff → tests/build → review → PR → (human) merge
 
 "Done" requires at least one observable artifact appropriate to the change:
 
-- passing `pnpm typecheck` / `pnpm lint` / tests
-- `pnpm build` when runtime or UI contracts changed
-- UI: exercise the flow in a browser (or document the substitute)
-- PR with a diff humans can review
-- for agent/MCP changes: a concrete query or request/response, not a claim
+- the checks listed in `PROJECT.yaml` / `AGENTS.md` (types, lint, tests, build)
+- UI: exercise the flow in a browser (or name the substitute)
+- a PR/diff humans can review when the project requires a PR
+- for agent/MCP changes: a concrete request/response, not a claim
 
 ## Memory update (`AVI-AGENT-031`, `037`)
 

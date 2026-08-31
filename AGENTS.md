@@ -21,7 +21,7 @@ Control plane: [`PROJECT.yaml`](PROJECT.yaml). Pattern IDs: `AVI-AGENT-001` … 
 3. Work on a feature branch; hand off via PR (`AVI-AGENT-008`, `AVI-AGENT-051`).
 4. Verify with evidence (`AVI-AGENT-027`, `AVI-AGENT-028`). UI changes need browser (or closest substitute) verification, not a screenshot-only claim.
 5. After substantial diffs, run an independent `code-reviewer` pass (`AVI-AGENT-006`).
-6. Pause for a human at merge, production mutation, billing, and secret handling (`AVI-AGENT-017`–`021`).
+6. Pause for a human at merge, production mutation, and billing (`AVI-AGENT-020`); keep secrets out of prompts and git (`AVI-AGENT-023`); treat writes as policy-gated (`AVI-AGENT-017`). Trivial and substantial edits both use a feature branch; this repo hands off via PR (`AVI-AGENT-008`).
 7. Promote lasting decisions into `PROJECT.yaml`, `docs/`, `kb/`, or this file (`AVI-AGENT-037`). Do not leave architecture only in chat.
 
 ## Architecture constraints (do not violate)

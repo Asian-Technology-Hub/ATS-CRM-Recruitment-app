@@ -1,36 +1,18 @@
 ---
-description: Avinash agentic SOP — plan, branch, verify, hand off. Always on for this repo.
+description: Avinash agentic SOP — point at PROJECT.yaml, AGENTS.md, and avi-agentic-engineering. Always on.
 alwaysApply: true
 ---
 
 # Avinash agentic SOP (Cursor)
 
-This repository follows the **Avinash Agentic Software Design Pattern Catalog**. Do not improvise a one-shot prompt workflow.
+Follow the **Avinash Agentic Software Design Pattern Catalog** (`AVI-AGENT-001`–`060`). Do not improvise a one-shot prompt workflow.
 
-## Required reading (progressive)
+**Load, in this order (do not dump the catalog):**
 
-1. `PROJECT.yaml` — project control plane (status, systems, policies, overlays).
-2. `AGENTS.md` — **this project's** constraints (not reusable skill text).
-3. Skill `.agents/skills/avi-agentic-engineering/SKILL.md` — operating loop for substantial work.
-4. Retrieve catalog cards only as needed from `.agents/skills/avi-agentic-engineering/references/catalog.md` (`AVI-AGENT-001` … `060`).
+1. `PROJECT.yaml` — control plane
+2. `AGENTS.md` — **this project's** policy (keep the Next.js stamp intact)
+3. `.agents/skills/avi-agentic-engineering/SKILL.md` — for any non-trivial task
 
-Do **not** dump the full catalog into context on every turn (`AVI-AGENT-033`, `AVI-AGENT-034`).
+Progressive disclosure: retrieve individual catalog cards from `references/catalog.md` only when needed (`AVI-AGENT-033`, `AVI-AGENT-034`).
 
-## Canonical loop
-
-`Intent → inspect → plan → scoped implement → policy-gated tools → verify with evidence → independent review → human gate → PR/artifacts → memory update`
-
-## Hard defaults
-
-- **Plan before mutating** (`AVI-AGENT-007`). Inspect the tree first.
-- **Branch, never mutate main in place** (`AVI-AGENT-008`). PR is the handoff unit.
-- **Skills ≠ project policy** (`AVI-AGENT-010`). Put reusable knowledge in `avi-*` skills; put repo rules in `AGENTS.md` / `PROJECT.yaml`.
-- **Builder ≠ reviewer** (`AVI-AGENT-006`). After substantial code, run the `code-reviewer` agent (CodeRabbit). Do not treat self-check as the review.
-- **Done means evidence** (`AVI-AGENT-028`): tests, typecheck/lint, diff, and for UI changes browser or equivalent verification.
-- **Do not merge, deploy, pay, or delete production data** without an explicit human request (`AVI-AGENT-020`).
-- **Secrets stay out of prompts and commits** (`AVI-AGENT-023`). Use env aliases; redact logs.
-- Promote durable decisions out of chat into `PROJECT.yaml`, ADRs, `AGENTS.md`, or `kb/` (`AVI-AGENT-037`).
-
-## This repo's overlays
-
-Web app + AI/agent (`PROJECT.yaml` → `overlays`). Tenant isolation (`lib/tenant.ts`, `lib/mcp.ts`) is a security boundary: never hoist the MCP client; never accept `orgId` from the model.
+Project constraints (tenancy, stack, commands, autonomy) live in `AGENTS.md` / `PROJECT.yaml`, not in this rule (`AVI-AGENT-010`).
