@@ -17,7 +17,7 @@ export default async function OnboardingPage() {
         />
         <div className="relative z-10 flex flex-col items-center">
           <span className="font-display text-lg font-bold tracking-tight">
-            Vetra<span className="text-[#9F8BEF]">.</span>
+            ATS<span className="text-[#9F8BEF]">.</span>
           </span>
           <p className="mt-6 font-mono text-xs tracking-[0.25em] text-[#9F8BEF] uppercase">
             One-time setup

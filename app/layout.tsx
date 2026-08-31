@@ -23,7 +23,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vetra",
+  title: "ATS",
   description:
     "The AI-native CRM for recruitment agencies — match talent fast with AI assistance.",
 };

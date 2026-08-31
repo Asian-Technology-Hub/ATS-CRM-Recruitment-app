@@ -149,7 +149,7 @@ export default async function LandingPage() {
         <header className="relative z-10">
           <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5">
             <span className="font-display text-xl font-bold tracking-tight">
-              Vetra<span className="text-[#EE5A0E]">.</span>
+              ATS<span className="text-[#EE5A0E]">.</span>
             </span>
             <div className="flex items-center gap-2">
               {userId ? (
@@ -336,7 +336,7 @@ export default async function LandingPage() {
                 Ask your database like a colleague
               </h2>
               <p className="text-muted-foreground mt-3 max-w-md leading-relaxed">
-                Vetra reads your pipeline and the texture of your interview
+                ATS reads your pipeline and the texture of your interview
                 notes together. Every answer is a person, linked, with the
                 evidence beside them.
               </p>
@@ -489,7 +489,7 @@ export default async function LandingPage() {
         <footer className="relative z-10 border-t border-white/10">
           <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-6 text-sm text-white/60">
             <span className="font-display font-bold text-white">
-              Vetra<span className="text-[#FF8A47]">.</span>
+              ATS<span className="text-[#FF8A47]">.</span>
             </span>
             <span className="font-mono text-xs">
               Next.js · Clerk · Sanity Context

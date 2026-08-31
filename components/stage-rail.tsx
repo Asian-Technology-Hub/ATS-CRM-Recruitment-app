@@ -51,7 +51,7 @@ export function StagePill({
 }
 
 /**
- * Vetra's signature glyph: the six-stage pipeline as a compact rail.
+ * ATS signature glyph: the six-stage pipeline as a compact rail.
  * The current stage is the long bar; passed stages glow faintly behind it.
  */
 export function StageRail({

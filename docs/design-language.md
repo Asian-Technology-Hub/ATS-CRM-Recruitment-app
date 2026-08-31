@@ -1,10 +1,10 @@
-# Vetra design language
+# ATS design language
 
 One rule above all: **color means something.**
 
 - **Ink** (`primary`) — actions and emphasis. Buttons are near-black in light mode, near-white in dark. Never colored buttons for ordinary actions.
 - **The stage ramp** (`stage-applied … stage-rejected`) — pipeline status ONLY. Never decorate with stage colors.
-- **Violet** (`ai`, `ai-foreground`, `ai-soft`) — reserved EXCLUSIVELY for AI: the Ask Vetra button, tool receipts, sourcing matches, AI upsell cards. If a feature isn't AI, it never wears violet. This is how users learn "violet = the intelligent part".
+- **Violet** (`ai`, `ai-foreground`, `ai-soft`) — reserved EXCLUSIVELY for AI: the Ask ATS button, tool receipts, sourcing matches, AI upsell cards. If a feature isn't AI, it never wears violet. This is how users learn "violet = the intelligent part".
 - Semantic status (destructive, `stage-hired` green for success text) stays separate from all of the above.
 
 ## Type
@@ -25,7 +25,7 @@ One rule above all: **color means something.**
 - **Forms are pages, not modals.** Entity creation lives at `…/new` routes: max-w-2xl form column, grouped fields with clear labels, helper text under complex fields, sticky-feeling footer with `Cancel` (link back) + primary submit. Big textareas (CV, description) get `min-h-48` and monospace-off. Only *pickers* and the chat sheet may overlay.
 - **Empty states**: dashed border card, one sentence inviting the action, primary button. Never a bare "No data".
 - **Tables**: header row `text-xs uppercase tracking-wider text-muted-foreground`; row hover `hover:bg-muted/50`; the row's primary cell is a medium-weight link.
-- **AI surfaces**: violet accents — `bg-ai text-ai-foreground` for the Ask Vetra button and primary AI CTAs, `bg-ai-soft` tints for receipts/badges, `border-ai/30` for upsell cards. Tool receipts stay `font-mono text-xs`.
+- **AI surfaces**: violet accents — `bg-ai text-ai-foreground` for the Ask ATS button and primary AI CTAs, `bg-ai-soft` tints for receipts/badges, `border-ai/30` for upsell cards. Tool receipts stay `font-mono text-xs`.
 - **Stat cards**: label (eyebrow style) over `font-display text-3xl font-bold tabular-nums` number. No icons needed.
 - Buttons: `default` (ink) for the page's one primary action, `outline` for secondary, `ghost` for tertiary/inline. Destructive-ish actions (archive, close) are `outline` with plain language — no red unless it truly destroys.
 
@@ -36,7 +36,7 @@ Sentence case everywhere. Buttons say exactly what happens ("Add company", then 
 ## The overhaul (v2)
 
 - **Two worlds**: the dark ink-violet rail (`#131120`, white text, white/10 actives) carries the brand; the warm light surface carries the work. The landing page hero and closing band live in the dark world with aurora glows + grain.
-- **The AI dock**: "Ask Vetra" is a floating violet pill, fixed bottom-right on every dashboard screen. It is the ONLY floating element. Pages must keep bottom-right clear (`pb-24` on main handles it).
+- **The AI dock**: "Ask ATS" is a floating violet pill, fixed bottom-right on every dashboard screen. It is the ONLY floating element. Pages must keep bottom-right clear (`pb-24` on main handles it).
 - **Cards over tables when scanning wins**: jobs are a card grid (title, company, StageMixBar, stale count, app count). Tables remain for dense reference lists (candidates, companies) but rows lead with an InitialsChip and a medium-weight name link.
 - **New primitives**: `components/stage-mix-bar.tsx` (StageMixBar — stacked stage distribution) and `components/initials-chip.tsx` (InitialsChip — deterministic identity avatar). Use them everywhere a pipeline or a person appears in a list.
 - **Page headers get bigger**: `text-3xl` display titles, generous top padding, meta line beneath; detail pages may use a header block with the InitialsChip (lg) beside the title.

@@ -15,7 +15,7 @@ export default function SignInPage() {
             href="/"
             className="font-display text-2xl font-bold tracking-tight"
           >
-            Vetra<span className="text-[#9F8BEF]">.</span>
+            ATS<span className="text-[#9F8BEF]">.</span>
           </Link>
           <p className="mt-2 text-sm text-white/60">
             Sign in to get back to your desk.

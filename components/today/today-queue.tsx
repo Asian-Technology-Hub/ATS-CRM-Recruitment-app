@@ -265,7 +265,7 @@ function Peek({
         <div className="border-ai/25 bg-ai-soft/40 rounded-lg border p-3">
           <p className="text-ai flex items-center gap-1.5 text-xs font-semibold">
             <Sparkles className="size-3" />
-            Ask Vetra
+            Ask ATS
           </p>
           {aiAllowed ? (
             <div className="mt-2 flex flex-col items-start gap-1.5">
