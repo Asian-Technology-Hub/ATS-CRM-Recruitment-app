@@ -1,0 +1,86 @@
+# Machine-readable control plane for agents (AVI-AGENT-053).
+# Humans: see README.md and AGENTS.md. Do not treat chat as source of truth.
+
+schema_version: 1
+id: vetra-crm
+name: Vetra
+kind: web-app
+status: active
+stage: implementation
+
+summary: >
+  Multi-tenant recruitment CRM (Next.js 16 + Sanity Content Lake + Clerk orgs/billing)
+  with Ask Vetra, an org-scoped Sanity Context MCP copilot.
+
+overlays:
+  - core
+  - web-app
+  - ai-agent
+
+owners:
+  - role: product
+    name: Avinash
+  - role: engineering
+    name: Avinash
+
+systems:
+  execution:
+    - github
+  project_management:
+    - asana # authoritative workstream when linked; GitHub owns code
+  content:
+    - sanity
+  identity_billing:
+    - clerk
+  models:
+    - anthropic-claude
+
+repositories:
+  - path: .
+    vcs: git
+    default_branch: main
+
+links:
+  docs: README.md
+  design: docs/design-language.md
+  agents: AGENTS.md
+  skill: .agents/skills/avi-agentic-engineering/SKILL.md
+  catalog: .agents/skills/avi-agentic-engineering/references/catalog.md
+  knowledge_base: kb/
+
+architecture:
+  runtime: nextjs-16-app-router
+  ui: react-19 + tailwind-v4
+  datastore: sanity-content-lake
+  auth: clerk-organizations
+  agent:
+    route: app/api/agent/route.ts
+    mcp: sanity-context
+    tenancy: per-request org-scoped groqFilter
+    writes: server-actions-only
+  load_bearing:
+    - lib/mcp.ts
+    - lib/tenant.ts
+    - lib/agent-tools.ts
+    - lib/agent-prompt.ts
+    - lib/actions/
+
+policies:
+  autonomy: recommend-then-draft-then-reversible
+  merge: human-approval-required
+  production_mutation: human-approval-required
+  secrets: env-only
+  tenant_boundary: fail-closed
+  review: independent-code-reviewer-required-for-substantial-diffs
+  verification:
+    - pnpm typecheck
+    - pnpm lint
+    - pnpm build # when runtime/UI contracts change
+    - browser-or-equivalent for UI
+
+open_questions:
+  - Whether Asana is wired for this educational clone (link when a workstream exists).
+
+knowledge:
+  retrieval: on-demand
+  promote_from_chat: true

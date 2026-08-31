@@ -1,0 +1,86 @@
+schema_version: 1
+catalog: avi-agentic
+id_prefix: AVI-AGENT
+canonical_loop: >
+  Intent → Coordinator → scoped context/knowledge → specialist agents →
+  policy-gated capabilities/MCP → deterministic execution → verification →
+  independent review → human gate where required → artifact/PR → audit + memory update
+structural: >
+  Lean project core + overlays + PROJECT.yaml + AGENTS.md + avi-* skills +
+  project KB + GitHub execution state + Asana project state + MCP bus +
+  model router + policy/audit control plane
+
+categories:
+  orchestration: { range: [1, 6] }
+  implementation: { range: [7, 11] }
+  integration: { range: [12, 16] }
+  safety: { range: [17, 23] }
+  isolation: { range: [24, 26] }
+  quality: { range: [27, 30] }
+  knowledge: { range: [31, 40] }
+  browser: { range: [41, 45] }
+  models: { range: [46, 50] }
+  project_management: { range: [51, 54] }
+  unifying: { range: [55, 60] }
+
+patterns:
+  - { id: AVI-AGENT-001, name: Coordinator + scoped implementers + independent reviewers, category: orchestration }
+  - { id: AVI-AGENT-002, name: Intent router / agent dispatcher, category: orchestration }
+  - { id: AVI-AGENT-003, name: Specialized agent pipeline, category: orchestration }
+  - { id: AVI-AGENT-004, name: Hierarchical agent decomposition, category: orchestration }
+  - { id: AVI-AGENT-005, name: Parallel-agent fan-out / fan-in, category: orchestration }
+  - { id: AVI-AGENT-006, name: Independent verification agent, category: orchestration }
+  - { id: AVI-AGENT-007, name: Plan-before-build, category: implementation }
+  - { id: AVI-AGENT-008, name: Branch → diff → test → approve, category: implementation }
+  - { id: AVI-AGENT-009, name: Spec-driven / artifact-driven development, category: implementation }
+  - { id: AVI-AGENT-010, name: Skills vs project rules separation, category: implementation }
+  - { id: AVI-AGENT-011, name: Lean core + project-type overlays, category: implementation }
+  - { id: AVI-AGENT-012, name: Resident core + thin adapters, category: integration }
+  - { id: AVI-AGENT-013, name: Unified gateway / adapter, category: integration }
+  - { id: AVI-AGENT-014, name: Provider-agnostic tool contract, category: integration }
+  - { id: AVI-AGENT-015, name: MCP as capability bus, category: integration }
+  - { id: AVI-AGENT-016, name: Capability registry, category: integration }
+  - { id: AVI-AGENT-017, name: Policy-gated capability execution, category: safety }
+  - { id: AVI-AGENT-018, name: Least-privilege agents, category: safety }
+  - { id: AVI-AGENT-019, name: Allowlists instead of generic execution, category: safety }
+  - { id: AVI-AGENT-020, name: Human approval gates, category: safety }
+  - { id: AVI-AGENT-021, name: Reversible-by-default actions, category: safety }
+  - { id: AVI-AGENT-022, name: Append-only agent audit trail, category: safety }
+  - { id: AVI-AGENT-023, name: Secret isolation / redaction, category: safety }
+  - { id: AVI-AGENT-024, name: Dedicated safe execution environment, category: isolation }
+  - { id: AVI-AGENT-025, name: Sandboxed agent workspace, category: isolation }
+  - { id: AVI-AGENT-026, name: Transactional agent execution, category: isolation }
+  - { id: AVI-AGENT-027, name: Verification loop, category: quality }
+  - { id: AVI-AGENT-028, name: Evidence-based completion, category: quality }
+  - { id: AVI-AGENT-029, name: Failure-aware agent workflow, category: quality }
+  - { id: AVI-AGENT-030, name: Heartbeat + timeout + cancellation, category: quality }
+  - { id: AVI-AGENT-031, name: Project-scoped knowledge base, category: knowledge }
+  - { id: AVI-AGENT-032, name: Shared organizational knowledge + project overlay, category: knowledge }
+  - { id: AVI-AGENT-033, name: Retrieval-on-demand instead of prompt stuffing, category: knowledge }
+  - { id: AVI-AGENT-034, name: Context compression / progressive disclosure, category: knowledge }
+  - { id: AVI-AGENT-035, name: Source-provenance, category: knowledge }
+  - { id: AVI-AGENT-036, name: Knowledge promotion, category: knowledge }
+  - { id: AVI-AGENT-037, name: Conversation → structured memory, category: knowledge }
+  - { id: AVI-AGENT-038, name: Temporal memory, category: knowledge }
+  - { id: AVI-AGENT-039, name: Graph + vector + structured memory, category: knowledge }
+  - { id: AVI-AGENT-040, name: Bounded personal context, category: knowledge }
+  - { id: AVI-AGENT-041, name: Browser as agent sensor + actuator, category: browser }
+  - { id: AVI-AGENT-042, name: Contextual capability injection, category: browser }
+  - { id: AVI-AGENT-043, name: Observe → learn → automate, category: browser }
+  - { id: AVI-AGENT-044, name: Demonstration-to-skill, category: browser }
+  - { id: AVI-AGENT-045, name: Human workflow augmentation before full automation, category: browser }
+  - { id: AVI-AGENT-046, name: Model router, category: models }
+  - { id: AVI-AGENT-047, name: Curated model catalog, category: models }
+  - { id: AVI-AGENT-048, name: Budget-aware routing, category: models }
+  - { id: AVI-AGENT-049, name: Escalation routing, category: models }
+  - { id: AVI-AGENT-050, name: Multi-model consensus / critique, category: models }
+  - { id: AVI-AGENT-051, name: Source-of-truth separation, category: project_management }
+  - { id: AVI-AGENT-052, name: Bidirectional traceability, category: project_management }
+  - { id: AVI-AGENT-053, name: Machine-readable project metadata, category: project_management }
+  - { id: AVI-AGENT-054, name: Progressive project formalization, category: project_management }
+  - { id: AVI-AGENT-055, name: Agent harness over ad-hoc prompting, category: unifying }
+  - { id: AVI-AGENT-056, name: Evolving agent harness, category: unifying }
+  - { id: AVI-AGENT-057, name: Control plane / execution plane separation, category: unifying }
+  - { id: AVI-AGENT-058, name: Event-driven agent architecture, category: unifying }
+  - { id: AVI-AGENT-059, name: Agent → workflow → deterministic tool, category: unifying }
+  - { id: AVI-AGENT-060, name: Autonomy gradient, category: unifying }
