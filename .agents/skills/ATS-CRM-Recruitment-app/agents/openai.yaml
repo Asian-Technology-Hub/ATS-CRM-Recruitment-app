@@ -1,0 +1,6 @@
+interface:
+  display_name: "ATS CRM Recruitment App"
+  short_description: "Repo-specific patterns and workflows for ATS-CRM-Recruitment-app"
+  default_prompt: "Use the ATS-CRM-Recruitment-app repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
