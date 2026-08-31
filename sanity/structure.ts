@@ -16,13 +16,13 @@ const DESK_TYPES = [
 ] as const;
 
 /**
- * Vetra's branded Studio structure: browse by agency (organization), a flat
+ * ATS branded Studio structure: browse by agency (organization), a flat
  * "everything" section, and the AI section (agent context + conversations
  * captured by Insights).
  */
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title("Vetra")
+    .title("ATS")
     .items([
       S.listItem()
         .title("Agencies")

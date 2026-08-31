@@ -92,10 +92,10 @@ export function AppSidebar({
             className="font-display text-lg font-bold tracking-tight"
           >
             <span className="group-data-[collapsible=icon]:hidden">
-              Vetra<span className="text-ai">.</span>
+              ATS<span className="text-ai">.</span>
             </span>
             <span className="hidden group-data-[collapsible=icon]:inline">
-              V<span className="text-ai">.</span>
+              A<span className="text-ai">.</span>
             </span>
           </Link>
           <SidebarTrigger className="text-muted-foreground hidden md:flex" />

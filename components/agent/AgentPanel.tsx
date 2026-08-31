@@ -661,7 +661,7 @@ function AgentChat({
               <Sparkles className="size-3 animate-pulse" />
             </span>
             <span className="text-muted-foreground text-[13px]">
-              Vetra is searching your records
+              ATS is searching your records
             </span>
             <span className="flex items-center gap-1" aria-hidden>
               {[0, 150, 300].map((delay) => (
@@ -719,7 +719,7 @@ function AgentChat({
           onChange={(e) => setInput(e.target.value)}
           placeholder={
             busy
-              ? "Vetra is working — one moment"
+              ? "ATS is working — one moment"
               : "Ask about your candidates and jobs"
           }
           disabled={busy}
@@ -781,7 +781,7 @@ export function AgentPanel({ allowed }: { allowed: boolean }) {
         )}
       >
         <Sparkles className="size-4" />
-        Ask Vetra
+        Ask ATS
       </Button>
 
       {/*
@@ -791,7 +791,7 @@ export function AgentPanel({ allowed }: { allowed: boolean }) {
       */}
       <div
         role="dialog"
-        aria-label="Ask Vetra"
+        aria-label="Ask ATS"
         inert={!open}
         onKeyDown={(e) => {
           if (e.key === "Escape") setOpen(false);
@@ -818,7 +818,7 @@ export function AgentPanel({ allowed }: { allowed: boolean }) {
               <Sparkles className="size-3.5" />
             </span>
             <div>
-              <p className="text-sm font-semibold tracking-tight">Ask Vetra</p>
+              <p className="text-sm font-semibold tracking-tight">Ask ATS</p>
               {chatStatus.busy ? (
                 <p className="text-ai flex items-center gap-1.5 text-[11.5px]">
                   Searching your records

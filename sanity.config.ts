@@ -12,7 +12,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
 
 export default defineConfig({
   name: "vetra",
-  title: "Vetra",
+  title: "ATS",
   projectId,
   dataset,
   basePath: "/studio",

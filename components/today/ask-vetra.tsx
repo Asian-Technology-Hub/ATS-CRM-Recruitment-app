@@ -4,7 +4,7 @@ import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-/** Fire a question into the Ask Vetra dock from anywhere in the app. */
+/** Fire a question into the Ask ATS dock from anywhere in the app. */
 export function askVetra(text: string) {
   window.dispatchEvent(new CustomEvent("vetra:ask", { detail: { text } }));
 }

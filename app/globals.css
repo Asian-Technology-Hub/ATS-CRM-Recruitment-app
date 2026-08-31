@@ -128,7 +128,7 @@
     @apply font-sans;
   }
 }
-/* ── Vetra design language ──────────────────────────────────────
+/* ── ATS design language ──────────────────────────────────────
    Color means something: ink for actions, the stage ramp for
    pipeline status, and violet EXCLUSIVELY for AI moments. */
 :root {
@@ -264,7 +264,7 @@ body {
   .animate-float, .animate-float-delay { animation: none; }
 }
 
-/* Ask Vetra dock (Ask Widget design) */
+/* Ask ATS dock (Ask Widget design) */
 @keyframes vetra-sweep {
   0% { opacity: 0; transform: translateX(-60%); }
   40% { opacity: 0.9; }
@@ -275,7 +275,7 @@ body {
   .animate-vetra-sweep { animation: none; }
 }
 
-/* Ask Vetra expanded: the dock becomes a right sidebar and the app shifts in */
+/* Ask ATS expanded: the dock becomes a right sidebar and the app shifts in */
 [data-slot="sidebar-inset"] { transition: margin-right 300ms ease; }
 @media (min-width: 768px) {
   body[data-vetra-expanded] [data-slot="sidebar-inset"] { margin-right: 428px; }

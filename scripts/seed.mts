@@ -1,5 +1,5 @@
 /**
- * Vetra demo seed script.
+ * ATS demo seed script.
  *
  * Usage:
  *   node --experimental-strip-types scripts/seed.mts <orgId>            # seed (idempotent)

@@ -325,7 +325,7 @@ export default async function TodayPage() {
       name: thinJob.title,
       sub: thinJob.companyName ?? "—",
       stage: null,
-      reason: "Ask Vetra to shortlist matches for this brief from your existing pool.",
+      reason: "Ask ATS to shortlist matches for this brief from your existing pool.",
       actionLabel: "Review matches",
       href: `/dashboard/jobs/${thinJob._id}`,
       ageLabel: "",

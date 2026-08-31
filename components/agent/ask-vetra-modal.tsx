@@ -59,7 +59,7 @@ function useTypewriter(active: boolean) {
 
 /**
  * ⌘I quick-ask: a centered modal with the landing page's typewriter input.
- * Submitting hands the question to the Ask Vetra dock (which streams the answer)
+ * Submitting hands the question to the Ask ATS dock (which streams the answer)
  * and gets out of the way.
  */
 export function AskVetraModal() {
@@ -115,7 +115,7 @@ export function AskVetraModal() {
         className="text-ai/90 hover:bg-ai-soft/60 hover:text-ai mb-1 flex h-[30px] w-full cursor-pointer items-center gap-2.5 rounded-md px-2.5 text-[13px] transition-colors"
       >
         <Sparkles className="size-4 shrink-0" />
-        Ask Vetra
+        Ask ATS
         <kbd className="text-ai/60 ml-auto font-mono text-[10px]">⌘I</kbd>
       </button>
 
@@ -131,7 +131,7 @@ export function AskVetraModal() {
           showCloseButton={false}
         >
           <DialogHeader className="sr-only">
-            <DialogTitle>Ask Vetra</DialogTitle>
+            <DialogTitle>Ask ATS</DialogTitle>
             <DialogDescription>
               Ask a question across your candidates, roles and debriefs.
             </DialogDescription>

@@ -102,7 +102,7 @@ export default async function DashboardLayout({
             href="/dashboard"
             className="font-display text-base font-bold tracking-tight"
           >
-            Vetra<span className="text-ai">.</span>
+            ATS<span className="text-ai">.</span>
           </Link>
         </div>
         <main className="flex min-w-0 flex-1 flex-col px-5 pb-24 lg:px-8">

@@ -1,4 +1,4 @@
-# Vetra — AI-Native Recruitment CRM with Sanity Context, Clerk & Next.js 16
+# ATS — AI-Native Recruitment CRM with Sanity Context, Clerk & Next.js 16
 
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![Sanity](https://img.shields.io/badge/Sanity-Context%20%2B%20Content%20Lake-f03e2f?logo=sanity)](https://sanity.io/get-started?coupon=sonny)
@@ -8,15 +8,15 @@
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind%20CSS-v4-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178c6?logo=typescript)](https://www.typescriptlang.org/)
 
-> **Disclaimer:** Vetra is a fictional educational project. The agencies, clients,
+> **Disclaimer:** ATS is a fictional educational project. The agencies, clients,
 > candidates, CVs, interview debriefs and offer figures in the demo data are
 > synthetic. Sanity, Clerk, Anthropic, Vercel, Next.js, React, Tailwind CSS and
 > other third-party names are trademarks of their respective owners and are used
 > only to identify the technologies demonstrated here.
 
-Vetra is a complete multi-tenant CRM for recruitment agencies — clients, roles,
+ATS is a complete multi-tenant CRM for recruitment agencies — clients, roles,
 candidates, a drag-and-drop pipeline, interview debriefs, offers — with an AI
-copilot called **Ask Vetra** that genuinely knows every record in *your* agency
+copilot called **Ask ATS** that genuinely knows every record in *your* agency
 and nobody else's.
 
 Ask it _"Who gave strong system-design answers in interviews recently?"_ and it
@@ -25,7 +25,7 @@ for "in the last 60 days", combined with **semantic ranking** over your actual
 interview debrief prose. Real people. Real feedback. Scoped, at the database
 level, to the [Clerk organization](https://go.clerk.com/sonny) you signed in as.
 
-![Vetra landing page](docs/assets/landing.png)
+![ATS landing page](docs/assets/landing.png)
 
 > **Who is this for?**
 > Developers who want to see an AI agent wired into real structured content —
@@ -35,7 +35,7 @@ level, to the [Clerk organization](https://go.clerk.com/sonny) you signed in as.
 
 > **What makes it different?**
 > Most Sanity Context examples are single-tenant: one dataset, one audience.
-> Vetra rebuilds the same pattern for SaaS. The Sanity Context MCP URL is
+> ATS rebuilds the same pattern for SaaS. The Sanity Context MCP URL is
 > constructed **per request** with a GROQ filter pinned to the signed-in org,
 > the stored fallback filter denies everything, and the agent's *write* tools
 > are thin wrappers around the exact same Server Actions the UI buttons call —
@@ -62,7 +62,7 @@ level, to the [Clerk organization](https://go.clerk.com/sonny) you signed in as.
 | --- | --- | --- |
 | **Clerk** | Authentication, **organizations** (each agency is an org), B2B seat-based billing, and the org id that becomes the tenant key on every document | **[Create a free Clerk account →](https://go.clerk.com/sonny)** |
 | **Sanity** | The entire datastore — clients, roles, candidates, applications, interviews — plus the embedded Studio and the Sanity Context MCP endpoint the agent queries | **[Create a free Sanity account →](https://sanity.io/get-started?coupon=sonny)** |
-| **Anthropic** | Claude Sonnet 5 powers the Ask Vetra copilot | [Get an API key →](https://console.anthropic.com/) |
+| **Anthropic** | Claude Sonnet 5 powers the Ask ATS copilot | [Get an API key →](https://console.anthropic.com/) |
 
 > 💡 There is no separate database. Sanity **is** the database — and because it
 > is, the same content the Studio edits is the content the AI queries, with no
@@ -72,7 +72,7 @@ level, to the [Clerk organization](https://go.clerk.com/sonny) you signed in as.
 
 ## 🤔 What Is This App?
 
-Vetra is three products fused together: an agency CRM, a content backend your
+ATS is three products fused together: an agency CRM, a content backend your
 whole team can edit, and an AI copilot that reads and writes through the same
 guards as the UI.
 
@@ -84,7 +84,7 @@ guards as the UI.
 - Keep a **Ledger** of client relationships with a computed "promise" state
   (Going quiet · Needs an update · Offer chasing reply · On track)
 - Log interviews with written debriefs, record offers, archive candidates
-- Ask **Ask Vetra** anything about your pipeline — and tell it to *do* things
+- Ask **Ask ATS** anything about your pipeline — and tell it to *do* things
   ("move Priya to offer and log that her final round passed")
 - Press **Help source candidates** on a role and have your whole talent pool
   ranked against the brief by meaning, not keywords
@@ -156,7 +156,7 @@ guards as the UI.
 > human typed). Those two fields are the entire "search by meaning" surface —
 > everything else the agent does is exact filtering and reference joins.
 
-### Ask Vetra (the AI copilot)
+### Ask ATS (the AI copilot)
 
 - 🧠 **Schema-aware from message one** — the Sanity Context `/initial-context`
   is fetched, cached per org, and injected into the system prompt (the
@@ -182,15 +182,15 @@ guards as the UI.
 | --- | --- |
 | ![Expanded tool receipt showing the generated GROQ query](docs/assets/ask-vetra-groq.png) | ![The answer citing real candidates as inline pills](docs/assets/ask-vetra-answer.png) |
 
-![Ask Vetra expanded to a sidebar — the app shifts over and stays fully usable](docs/assets/ask-vetra-expanded.png)
+![Ask ATS expanded to a sidebar — the app shifts over and stays fully usable](docs/assets/ask-vetra-expanded.png)
 
 | ⌘I quick-ask | ⌘K command palette |
 | --- | --- |
-| ![Ask Vetra modal with typewriter placeholder](docs/assets/ask-vetra-modal.png) | ![Command palette](docs/assets/command-menu.png) |
+| ![Ask ATS modal with typewriter placeholder](docs/assets/ask-vetra-modal.png) | ![Command palette](docs/assets/command-menu.png) |
 
 ### AI sourcing (embeddings, no LLM)
 
-Press **Help source candidates** on any role and Vetra scores your entire
+Press **Help source candidates** on any role and ATS scores your entire
 available pool against the role brief using `text::semanticSimilarity` — pure
 Sanity embeddings, **zero LLM calls**, one query. Percentages are contrast-
 stretched across the pool because raw similarity scores cluster in a narrow band.
@@ -276,7 +276,7 @@ const tools = { ...mcpTools, ...buildActionTools(), ...buildClientTools() };
 
 GROQ is Sanity's query language. The magic of Sanity Context is that the agent
 *writes GROQ for you* — and can mix precise filters with meaning-based ranking.
-This is the query Vetra actually generated for the screenshot above:
+This is the query ATS actually generated for the screenshot above:
 
 ```groq
 *[_type == "interview"
@@ -320,7 +320,7 @@ npx sanity datasets embeddings enable production --wait
 From then on it's automatic: **publish a document and Content Lake re-embeds it
 in the background.** No webhooks, no re-index jobs, no sync code.
 
-Vetra has exactly two semantic fields, both long-form prose by design:
+ATS has exactly two semantic fields, both long-form prose by design:
 
 | Field | Document | Why it's prose |
 | --- | --- | --- |
@@ -337,7 +337,7 @@ deployed Studio (Part 6). Indexing is not instant — check with
 
 ### Part 4 — The tenant boundary (the part most examples skip)
 
-Vetra is **multi-tenant**: one Sanity dataset, many agencies, an `orgId` string
+ATS is **multi-tenant**: one Sanity dataset, many agencies, an `orgId` string
 (the Clerk org id) on every document. The AI has to be inside that boundary, not
 beside it.
 
@@ -394,7 +394,7 @@ have?". Sanity Context exposes the schema overview over plain HTTP:
 <your MCP URL>/initial-context?<the same query string>
 ```
 
-Vetra fetches it server-side, caches it for 10 minutes, and injects it into the
+ATS fetches it server-side, caches it for 10 minutes, and injects it into the
 system prompt — then removes the now-redundant `initial_context` tool.
 
 The cache is keyed **by org id**, and that detail matters: document counts in the
@@ -419,7 +419,7 @@ document type and a **Conversations** type, both surfaced under an **AI** band i
 
 ### Part 7 — Action tools: one enforcement path
 
-Retrieval is half the story. Vetra's agent can also *write* — 8 tools in
+Retrieval is half the story. ATS's agent can also *write* — 8 tools in
 [`lib/agent-tools.ts`](lib/agent-tools.ts): `create_company`, `create_job`,
 `set_job_status`, `create_candidate`, `archive_candidate`, `add_to_pipeline`,
 `move_application`, `log_interview`.
@@ -567,10 +567,10 @@ and update `projectId` **and** `studioHost` in
 
 ```bash
 # Viewer — the app's reads AND the Sanity Context MCP connection
-npx sanity tokens add "Vetra Context (viewer)" --role=viewer
+npx sanity tokens add "ATS Context (viewer)" --role=viewer
 
 # Editor — Server Actions, the seed script, and Insights transcripts
-npx sanity tokens add "Vetra Writer (editor)"  --role=editor
+npx sanity tokens add "ATS Writer (editor)"  --role=editor
 ```
 
 Copy them into `SANITY_API_READ_TOKEN` and `SANITY_API_WRITE_TOKEN`.
@@ -615,7 +615,7 @@ Open `/studio` → **AI → Agent context** and publish one document:
 ### 8. Set up Clerk
 
 ```bash
-clerk apps create "Vetra" --json      # note the application_id
+clerk apps create "ATS" --json      # note the application_id
 clerk link --app <application_id>
 clerk env pull                        # writes both keys into .env.local
 clerk enable orgs
@@ -659,7 +659,7 @@ for 2+ weeks" demos work on any day.
 
 ### 11. Upgrade to Pro to unlock the AI
 
-Ask Vetra is gated behind the `ai_agent` feature. Go to **Dashboard → Billing**
+Ask ATS is gated behind the `ai_agent` feature. Go to **Dashboard → Billing**
 and upgrade with Clerk's dev checkout (test card `4242 4242 4242 4242`).
 
 ### First-Time Setup Checklist
@@ -674,7 +674,7 @@ and upgrade with Clerk's dev checkout (test card `4242 4242 4242 4242`).
 - [ ] Clerk keys pulled, orgs + billing enabled, plans patched, seats set
 - [ ] `ANTHROPIC_API_KEY` set
 - [ ] Agency created, `pnpm seed <orgId>` run, upgraded to Pro
-- [ ] Ask Vetra answers with entity pills and shows its GROQ
+- [ ] Ask ATS answers with entity pills and shows its GROQ
 
 ---
 
@@ -690,7 +690,7 @@ The seed data is engineered so every beat lands:
    `moveApplication` deliberately skips `revalidatePath` so cards never jump
    mid-drag. Drop someone into **Offer** and record the figure right there;
    the note you add is what the agent reads back when you ask about the offer.
-3. **Ask Vetra**: _"Who's stalled in screening?"_ — **structural**. Watch the tool
+3. **Ask ATS**: _"Who's stalled in screening?"_ — **structural**. Watch the tool
    receipt: a plain GROQ date filter, no embeddings.
 4. **Ask**: _"Find me a React engineer with fintech experience"_ — **semantic**,
    over `cvText`.
@@ -721,8 +721,8 @@ Every one of these was hit for real while building this:
 | Semantic search returns nothing useful right after seeding | Embedding indexing is asynchronous. Check `npx sanity datasets embeddings status production` for `ready` before demoing. |
 | The agent answers with another tenant's data | You hoisted the MCP client to module scope. The tenant filter lives in the URL, so the client **must** be created per request. |
 | Embedded `/studio` shows "Add CORS origin" | `npx sanity cors add http://localhost:3000 --credentials` (match your exact dev origin). |
-| Ask Vetra returns 403 `upgrade_required` | By design — the `ai_agent` feature is Pro/Scale. Upgrade in Dashboard → Billing. |
-| `/api/agent` returns 401 | Not signed in, or signed in without an active organization. Vetra has no personal-account mode; `requireOrg()` bounces you to `/onboarding`. |
+| Ask ATS returns 403 `upgrade_required` | By design — the `ai_agent` feature is Pro/Scale. Upgrade in Dashboard → Billing. |
+| `/api/agent` returns 401 | Not signed in, or signed in without an active organization. ATS has no personal-account mode; `requireOrg()` bounces you to `/onboarding`. |
 | Closing a role doesn't free a slot on the free plan | Intentional. `countJobs` counts open **and** closed roles. |
 | Kanban cards jump back after a drag | Something added a `revalidatePath` to `moveApplication`. It's omitted on purpose — the board owns its optimistic state. |
 | Seat caps aren't enforced | They're a Clerk Dashboard setting (Billing → Plans → seat-based), not something the config API can patch. |
@@ -801,7 +801,7 @@ Every one of these was hit for real while building this:
 
 ## 📜 License, Security, and Notices
 
-This repository is for educational and reference purposes. Vetra is a fictional
+This repository is for educational and reference purposes. ATS is a fictional
 agency CRM; all clients, candidates, CVs, debriefs and offers are synthetic. Do
 not commit `.env.local`, Sanity tokens, Clerk keys, or Anthropic keys. Billing
 runs on Clerk's development checkout — no money moves.
