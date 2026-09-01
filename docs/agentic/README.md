@@ -1,18 +1,34 @@
-# Agentic workflow (this repository)
+# Agentic workflow (all Cursor projects)
 
-Vetra uses the **Avinash Agentic Software Design Pattern Catalog** so Cursor, Codex, Claude, and ChatGPT follow the same AI → human handoff.
+The **Avinash Agentic Software Design Pattern Catalog** (`AVI-AGENT-001`–`060`) is a **global Cursor harness**, not a Vetra-only SOP.
 
-| Layer | Path | Pattern |
+| Layer | Where | Applies to |
 | --- | --- | --- |
-| Cursor always-on | `.cursor/rules/avi-agentic.mdc` | AVI-AGENT-055 |
-| Project policy | `AGENTS.md` | AVI-AGENT-010 |
-| Control plane | `PROJECT.yaml` | AVI-AGENT-053 |
-| Reusable SOP + 60 patterns | `.agents/skills/avi-agentic-engineering/` | AVI-AGENT-001–060 |
-| Project KB | `kb/` | AVI-AGENT-031 |
-| ADRs | `docs/adr/` | AVI-AGENT-009 |
-| PR template | `.github/PULL_REQUEST_TEMPLATE.md` | AVI-AGENT-028 |
+| User Rule | Cursor → Customize → Rules ← `global/USER_RULE.md` | Every **local** project |
+| Team Rule | Cursor Dashboard ← `global/TEAM_RULE.md` | Every team member / repo (Team plan) |
+| User-level skill | `~/.cursor/skills/avi-agentic-engineering/` | Every **local** project on that machine |
+| In-repo skill | `.agents/skills/avi-agentic-engineering/` | **Cloud Agents** (they cannot see `~/`) |
+| Project overlay | `PROJECT.yaml` + `AGENTS.md` | That repository only |
 
-Start at the skill: [SKILL.md](../../.agents/skills/avi-agentic-engineering/SKILL.md).
+Canonical files in this checkout: [SKILL.md](../../.agents/skills/avi-agentic-engineering/SKILL.md).
+
+## Install once (your laptop)
+
+```bash
+.agents/skills/avi-agentic-engineering/scripts/install-global.sh
+```
+
+Then paste [USER_RULE.md](../../.agents/skills/avi-agentic-engineering/global/USER_RULE.md) into User Rules.
+
+## Seed another git repo
+
+```bash
+.agents/skills/avi-agentic-engineering/scripts/bootstrap-repo.sh /path/to/other-repo --with-project-skill
+```
+
+Or invoke the `avi-bootstrap-repo` skill in Agent chat.
+
+`--with-project-skill` is required if Cloud Agents will work in that repo.
 
 Canonical loop:
 

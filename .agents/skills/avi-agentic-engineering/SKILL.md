@@ -2,11 +2,11 @@
 name: avi-agentic-engineering
 description: >
   Avinash agentic SOP and pattern catalog (AVI-AGENT-001–060) for Cursor, Codex,
-  Claude, and ChatGPT. Use for any non-trivial software work: routing intent,
-  coordinating scoped agents, plan-before-build, branch/PR handoff, independent
-  review, policy-gated tools, verification with evidence, project KB, and
-  AI-to-human handoff. Trigger on workflow, SOP, AGENTS.md, PROJECT.yaml,
-  multi-agent, review, merge gates, or when starting substantial implementation.
+  Claude, and ChatGPT — every project, not one repo. Use for any non-trivial
+  software work, routing intent, coordinating agents, plan-before-build, branch/PR
+  handoff, independent review, policy-gated tools, verification, project KB, and
+  AI-to-human handoff. Also when the user wants this harness globally, in another
+  repository, or as Cursor User/Team Rules.
 ---
 
 # Avinash agentic engineering (Cursor)
@@ -15,7 +15,18 @@ Canonical loop:
 
 **Intent → Coordinator → scoped context/knowledge → specialist agents → policy-gated capabilities → deterministic execution → verification → independent review → human gate where required → artifact/PR → audit + memory update.**
 
-This skill is **reusable capability**. Repo-specific policy lives in `AGENTS.md` and `PROJECT.yaml` (`AVI-AGENT-010`). If those files are missing, create them from `templates/` before large work — do not invent policy in chat.
+This skill is **global reusable capability** for every Cursor project, not one repository. Repo-specific policy lives in that repo's `AGENTS.md` and `PROJECT.yaml` (`AVI-AGENT-010`).
+
+**Where it lives**
+
+| Environment | Skill location |
+| --- | --- |
+| Local Cursor (all projects) | `~/.cursor/skills/avi-agentic-engineering/` (also `~/.agents/skills/`) |
+| This git repo / Cloud Agents | `.agents/skills/avi-agentic-engineering/` (Cloud does not see `~/`) |
+| Always-on local hook | Cursor **User Rules** ← `global/USER_RULE.md` |
+| Always-on team hook | Cursor **Team Rules** ← `global/TEAM_RULE.md` |
+
+Install on a machine: `scripts/install-global.sh`. Seed any other repo: skill `avi-bootstrap-repo` or `scripts/bootstrap-repo.sh`. If `PROJECT.yaml` is missing, bootstrap lean core from `templates/` — do not invent policy in chat and do not dump this catalog into `AGENTS.md`.
 
 ## When to load what
 

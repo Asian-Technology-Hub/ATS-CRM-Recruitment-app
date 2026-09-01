@@ -11,9 +11,9 @@ Development work is expected to move between Cursor, Codex, Claude, and ChatGPT,
 
 ## Decision
 
-1. Formalize patterns as **`AVI-AGENT-001`–`AVI-AGENT-060`** in the reusable skill `avi-agentic-engineering`.
-2. Keep **skills ≠ project policy**: catalog/SOP in the skill; Vetra tenancy and stack rules in `AGENTS.md` / `PROJECT.yaml`.
-3. Wire Cursor via an always-apply rule that points at those files and states hard defaults (plan-before-build, branch/PR, independent review, evidence, human merge).
+1. Formalize patterns as **`AVI-AGENT-001`–`AVI-AGENT-060`** in the reusable skill `avi-agentic-engineering`, installed **user-global** for all local Cursor projects and **in-repo** for Cloud Agents.
+2. Keep **skills ≠ project policy**: catalog/SOP in the skill; product/stack rules in each repo's `AGENTS.md` / `PROJECT.yaml`.
+3. Wire Cursor via User Rules + Team Rules (all projects) and a thin always-apply project rule that only points at the skill.
 4. Use overlays `core` + `web-app` + `ai-agent` for this repository (no mobile/infra template bloat).
 
 ## Consequences

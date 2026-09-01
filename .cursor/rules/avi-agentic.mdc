@@ -1,18 +1,19 @@
 ---
-description: Avinash agentic SOP — point at PROJECT.yaml, AGENTS.md, and avi-agentic-engineering. Always on.
+description: Avinash agentic SOP pointer. Catalog is global; project policy is AGENTS.md / PROJECT.yaml.
 alwaysApply: true
 ---
 
-# Avinash agentic SOP (Cursor)
+# Avinash agentic SOP
 
-Follow the **Avinash Agentic Software Design Pattern Catalog** (`AVI-AGENT-001`–`060`). Do not improvise a one-shot prompt workflow.
+Follow `AVI-AGENT-001`–`060` on this project the same way as every other Cursor project. Do not paste the catalog into this rule.
 
-**Load, in this order (do not dump the catalog):**
+**Load order**
 
-1. `PROJECT.yaml` — control plane
-2. `AGENTS.md` — **this project's** policy (keep the Next.js stamp intact)
-3. `.agents/skills/avi-agentic-engineering/SKILL.md` — for any non-trivial task
+1. `PROJECT.yaml` — this repo's control plane
+2. `AGENTS.md` — this repo's policy only (keep framework stamps intact)
+3. Skill `avi-agentic-engineering`, first match:
+   - `~/.cursor/skills/avi-agentic-engineering/SKILL.md`
+   - `~/.agents/skills/avi-agentic-engineering/SKILL.md`
+   - `.agents/skills/avi-agentic-engineering/SKILL.md`
 
-Progressive disclosure: retrieve individual catalog cards from `references/catalog.md` only when needed (`AVI-AGENT-033`, `AVI-AGENT-034`).
-
-Project constraints (tenancy, stack, commands, autonomy) live in `AGENTS.md` / `PROJECT.yaml`, not in this rule (`AVI-AGENT-010`).
+If `PROJECT.yaml` is missing, run `avi-bootstrap-repo` / `scripts/bootstrap-repo.sh`.

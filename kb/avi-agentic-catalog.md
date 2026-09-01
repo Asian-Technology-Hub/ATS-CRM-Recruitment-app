@@ -11,11 +11,11 @@
 
 ## Notes
 
-The 60-pattern catalog (`AVI-AGENT-001`–`060`) is the future development workflow for AI-to-human handoff. This repo implements it as:
+The 60-pattern catalog (`AVI-AGENT-001`–`060`) is the development workflow for **every Cursor project**, not only this CRM.
 
-- reusable skill (capability)
-- `PROJECT.yaml` + `AGENTS.md` (project policy)
-- `.cursor/rules/avi-agentic.mdc` (always-on Cursor hook)
+- **Global:** `scripts/install-global.sh` → `~/.cursor/skills/` plus User Rule / Team Rule pointers
+- **Per repo overlay:** `PROJECT.yaml` + `AGENTS.md` (this CRM’s tenancy/stack rules)
+- **Cloud Agents:** in-repo `.agents/skills/` copy (`bootstrap-repo.sh --with-project-skill`) because `~/` skills are not synced to cloud workers
 
 ## Derived artifacts
 

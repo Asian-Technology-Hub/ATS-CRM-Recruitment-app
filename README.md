@@ -784,7 +784,7 @@ Every one of these was hit for real while building this:
 | [`docs/design-language.md`](docs/design-language.md) | The design system — why violet means AI and nothing else |
 | [`PROJECT.yaml`](PROJECT.yaml) | Agent control plane (status, overlays, policies) |
 | [`AGENTS.md`](AGENTS.md) | Project agent policy (Vetra constraints + Next.js stamp) |
-| [`docs/agentic/README.md`](docs/agentic/README.md) | Avinash agentic SOP / `AVI-AGENT-*` catalog wired for Cursor |
+| [`docs/agentic/README.md`](docs/agentic/README.md) | Avinash agentic SOP — **global Cursor harness** + this repo's overlay |
 
 ### Important Concepts
 

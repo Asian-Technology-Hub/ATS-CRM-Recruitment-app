@@ -46,6 +46,9 @@ links:
   agents: AGENTS.md
   skill: .agents/skills/avi-agentic-engineering/SKILL.md
   catalog: .agents/skills/avi-agentic-engineering/references/catalog.md
+  global_install: .agents/skills/avi-agentic-engineering/scripts/install-global.sh
+  bootstrap_repo: .agents/skills/avi-agentic-engineering/scripts/bootstrap-repo.sh
+  user_rule: .agents/skills/avi-agentic-engineering/global/USER_RULE.md
   knowledge_base: kb/
 
 architecture:

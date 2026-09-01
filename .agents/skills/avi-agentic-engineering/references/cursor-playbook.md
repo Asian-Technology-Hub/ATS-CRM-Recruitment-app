@@ -6,7 +6,10 @@ Use this when deciding *how* to run work inside Cursor (IDE or Cloud Agent). Pat
 
 | Cursor mechanism | Patterns |
 | --- | --- |
-| `.cursor/rules/avi-agentic.mdc` (`alwaysApply`) | 010, 055 |
+| Cursor **User Rule** (`global/USER_RULE.md`) | 010, 055 (all local projects) |
+| Cursor **Team Rule** (`global/TEAM_RULE.md`) | 010, 055 (all team repos) |
+| `~/.cursor/skills/avi-agentic-engineering/` | 010 (user-global skill) |
+| `.cursor/rules/avi-agentic.mdc` (`alwaysApply`) | 010, 055 (this repo / Cloud) |
 | `AGENTS.md` + `PROJECT.yaml` | 009, 010, 053 |
 | `CLAUDE.md` → `@AGENTS.md` | 010 |
 | Feature branch `cursor/<name>-*` + PR | 008, 020, 051 |
