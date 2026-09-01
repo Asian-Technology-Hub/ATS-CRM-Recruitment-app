@@ -782,6 +782,9 @@ Every one of these was hit for real while building this:
 | [`proxy.ts`](proxy.ts) | Clerk middleware, Next 16 convention — resource-based auth |
 | [`scripts/seed.mts`](scripts/seed.mts) | 203 engineered demo docs, idempotent, per-org namespaced |
 | [`docs/design-language.md`](docs/design-language.md) | The design system — why violet means AI and nothing else |
+| [`PROJECT.yaml`](PROJECT.yaml) | Agent control plane (status, overlays, policies) |
+| [`AGENTS.md`](AGENTS.md) | Project agent policy (Vetra constraints + Next.js stamp) |
+| [`docs/agentic/README.md`](docs/agentic/README.md) | Avinash agentic SOP — **global Cursor harness** + this repo's overlay |
 
 ### Important Concepts
 

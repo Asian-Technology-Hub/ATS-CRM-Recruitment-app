@@ -1,0 +1,45 @@
+schema_version: 1
+id: example-project
+name: Example
+kind: unknown
+status: idea
+stage: discovery
+summary: Known facts go here. Deep architecture waits until the project advances.
+
+overlays:
+  - core
+  # - web-app
+  # - mobile
+  # - ai-agent
+  # - infra
+
+owners: []
+
+systems:
+  execution: [github]
+  project_management: [] # e.g. asana
+
+repositories:
+  - path: .
+    vcs: git
+    default_branch: main
+
+links:
+  docs: README.md
+  agents: AGENTS.md
+  skill: .agents/skills/avi-agentic-engineering/SKILL.md
+  knowledge_base: kb/
+
+architecture: {}
+
+policies:
+  autonomy: recommend-then-draft-then-reversible
+  merge: human-approval-required
+  production_mutation: human-approval-required
+  secrets: env-only
+
+open_questions: []
+
+knowledge:
+  retrieval: on-demand
+  promote_from_chat: true

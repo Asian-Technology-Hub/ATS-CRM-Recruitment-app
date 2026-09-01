@@ -1,0 +1,19 @@
+---
+description: Avinash agentic SOP pointer. Catalog is global; project policy is AGENTS.md / PROJECT.yaml.
+alwaysApply: true
+---
+
+# Avinash agentic SOP
+
+Follow `AVI-AGENT-001`–`060` on this project the same way as every other Cursor project. Do not paste the catalog into this rule.
+
+**Load order**
+
+1. `PROJECT.yaml` — this repo's control plane
+2. `AGENTS.md` — this repo's policy only (keep framework stamps intact)
+3. Skill `avi-agentic-engineering`, first match:
+   - `~/.cursor/skills/avi-agentic-engineering/SKILL.md`
+   - `~/.agents/skills/avi-agentic-engineering/SKILL.md`
+   - `.agents/skills/avi-agentic-engineering/SKILL.md`
+
+If `PROJECT.yaml` is missing, run `avi-bootstrap-repo` / `scripts/bootstrap-repo.sh`.
